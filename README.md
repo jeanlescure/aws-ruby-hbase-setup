@@ -7,10 +7,8 @@
 
 ### Compiling
 
-`
-$ javac src/com/aws/RubyHbase/Setup/*.java src/com/aws/RubyHbase/util/*.java
-$ jar cmfv Manifest.txt ruby-hbase-setup.jar -C src com
-`
+    $ javac src/com/aws/RubyHbase/Setup/*.java src/com/aws/RubyHbase/util/*.java
+    $ jar cmfv Manifest.txt ruby-hbase-setup.jar -C src com
 
 ### Running Manually
 
