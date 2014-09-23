@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Console;
 import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) {
@@ -53,6 +55,8 @@ public class Main {
             
             try {
                 Process p = pb.start();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                while ((reader.readLine()) != null) {}
                 p.waitFor();
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
