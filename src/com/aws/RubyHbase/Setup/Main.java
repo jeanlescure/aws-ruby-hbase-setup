@@ -16,16 +16,10 @@ public class Main {
                     defaultFile    );
         
         // Install JRuby 1.7.12
-        pList.add(  new ProcessBuilder("sudo", "wget", "https://gist.githubusercontent.com/jeanlescure/a64dd817680dfd4b2bd2/raw/e5bf462f980e5b803bf4fab86b1a48a18a6cc931/aws-maven.repo", "-O", "/etc/yum.repos.d/epel-apache-maven.repo"),
+        pList.add(  new ProcessBuilder("wget", "https://s3-us-west-2.amazonaws.com/ruby-hbase/jruby-1.7.12.tar.gz"),
                     defaultFile   );
-        pList.add(  new ProcessBuilder("sudo", "yum", "install", "-y", "apache-maven"),
+        pList.add(  new ProcessBuilder("tar", "-zcf", "jruby-1.7.12.tar.gz"),
                     defaultFile   );
-        pList.add(  new ProcessBuilder("wget", "https://github.com/jruby/jruby/archive/1.7.12.tar.gz"),
-                    defaultFile   );
-        pList.add(  new ProcessBuilder("tar", "-zxvf", "1.7.12.tar.gz"),
-                    defaultFile   );
-        pList.add(  new ProcessBuilder("mvn", "package"),
-                    new File("/home/hadoop/jruby-1.7.12")   );
                     
         // Get and setup Ruby HBase daemon from GitHub
         pList.add(  new ProcessBuilder("git", "clone", "https://github.com/jeanlescure/aws-ruby-hbase-daemon.git"),
