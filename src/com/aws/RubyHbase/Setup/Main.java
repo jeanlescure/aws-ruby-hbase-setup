@@ -22,7 +22,7 @@ public class Main {
         // Install JRuby 1.7.12
         pList.add(  new ProcessBuilder("wget", "https://s3-us-west-2.amazonaws.com/ruby-hbase/jruby-1.7.12.tar.gz"),
                     defaultFile   );
-        pList.add(  new ProcessBuilder("tar", "-zcf", "jruby-1.7.12.tar.gz"),
+        pList.add(  new ProcessBuilder("tar", "-zxf", "jruby-1.7.12.tar.gz"),
                     defaultFile   );
                     
         // Get and setup Ruby HBase daemon from GitHub
@@ -34,13 +34,13 @@ public class Main {
                     defaultFile   );
         
         // Install necessary gems
-        pList.add(  new ProcessBuilder("sudo", "gem", "install", "tilt", "-v", "1.4.1"),
+        pList.add(  new ProcessBuilder("sudo", "gem", "install", "tilt", "-v", "1.4.1", "--no-ri", "--no-rdoc"),
                     defaultFile   );
-        pList.add(  new ProcessBuilder("sudo", "gem", "install", "rack", "-v", "1.5.2"),
+        pList.add(  new ProcessBuilder("sudo", "gem", "install", "rack", "-v", "1.5.2", "--no-ri", "--no-rdoc"),
                     defaultFile   );
-        pList.add(  new ProcessBuilder("sudo", "gem", "install", "rack-protection", "-v", "1.5.3"),
+        pList.add(  new ProcessBuilder("sudo", "gem", "install", "rack-protection", "-v", "1.5.3", "--no-ri", "--no-rdoc"),
                     defaultFile   );
-        pList.add(  new ProcessBuilder("sudo", "gem", "install", "sinatra", "-v", "1.4.5"),
+        pList.add(  new ProcessBuilder("sudo", "gem", "install", "sinatra", "-v", "1.4.5", "--no-ri", "--no-rdoc"),
                     defaultFile   );
                     
         PrintWriter out = System.console().writer();
