@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.io.File;
 import java.io.IOException;
+import java.io.Console;
+import java.io.PrintWriter;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,12 +40,16 @@ public class Main {
                     defaultFile   );
         pList.add(  new ProcessBuilder("sudo", "gem", "install", "sinatra", "-v", "1.4.5"),
                     defaultFile   );
+                    
+        PrintWriter out = System.console().writer();
         
         for(Iterator<ArrayList> i = pList.iterator(); i.hasNext(); ) {
             ArrayList<Object> iList = i.next();
             ProcessBuilder pb = ProcessBuilder.class.cast(iList.get(0));
             File f = File.class.cast(iList.get(1));
             pb.directory(f);
+            
+            out.println(pb.command().get(0).concat(" ".concat(pb.command().get(1).concat("..."))));
             
             try {
                 Process p = pb.start();
