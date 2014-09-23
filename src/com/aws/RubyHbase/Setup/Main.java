@@ -28,7 +28,9 @@ public class Main {
         // Get and setup Ruby HBase daemon from GitHub
         pList.add(  new ProcessBuilder("git", "clone", "https://github.com/jeanlescure/aws-ruby-hbase-daemon.git"),
                     defaultFile   );
-        pList.add(  new ProcessBuilder("bash", "-c", "\"cp -f aws-ruby-hbase-daemon/bin/* hbase/bin/\""),
+        pList.add(  new ProcessBuilder("cp", "-f", "aws-ruby-hbase-daemon/bin/hbase", "hbase/bin/hbase"),
+                    defaultFile   );
+        pList.add(  new ProcessBuilder("cp", "-f", "aws-ruby-hbase-daemon/bin/rb-daemon.rb", "hbase/bin/rb-daemon.rb"),
                     defaultFile   );
         pList.add(  new ProcessBuilder("cp", "-r", "aws-ruby-hbase-daemon/ruby/daemon", "hbase/lib/ruby/"),
                     defaultFile   );
