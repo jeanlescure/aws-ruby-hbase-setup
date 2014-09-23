@@ -50,13 +50,15 @@ public class Main {
             ProcessBuilder pb = ProcessBuilder.class.cast(iList.get(0));
             File f = File.class.cast(iList.get(1));
             pb.directory(f);
+            pb.redirectErrorStream(true);
             
             out.println(pb.command().get(0).concat(" ".concat(pb.command().get(1).concat("..."))));
             
             try {
                 Process p = pb.start();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                while ((reader.readLine()) != null) {}
+                String line;
+                while ((line = reader.readLine()) != null) out.println("Task: " + line);
                 p.waitFor();
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
