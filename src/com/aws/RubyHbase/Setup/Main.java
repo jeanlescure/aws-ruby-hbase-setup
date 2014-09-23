@@ -55,7 +55,7 @@ public class Main {
             
             try {
                 Process p = pb.start();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                 while ((reader.readLine()) != null) {}
                 p.waitFor();
             } catch (IOException | InterruptedException e) {
